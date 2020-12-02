@@ -1,6 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe Teacher, type: :model do
+  describe '#courses' do
+    it do
+      is_expected.to have_many(:courses)
+    end
+  end
+
   describe '#email' do
     it do
       create(:teacher)
