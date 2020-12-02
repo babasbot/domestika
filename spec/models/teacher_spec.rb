@@ -30,4 +30,18 @@ RSpec.describe Teacher, type: :model do
       is_expected.to have_many(:proposals).dependent(:destroy)
     end
   end
+
+  describe '#proposals_count' do
+    let!(:teacher) do
+      create(:teacher)
+    end
+
+    it do
+      expect {
+        create(:proposal, teacher: teacher)
+      }.to change {
+        teacher.reload.proposals_count
+      }.by(1)
+    end
+  end
 end

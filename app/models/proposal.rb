@@ -1,6 +1,8 @@
 class Proposal < ApplicationRecord
-  belongs_to :course
-  belongs_to :teacher
+  with_options counter_cache: true do
+    belongs_to :course
+    belongs_to :teacher
+  end
 
   has_many :votes, as: :votable, dependent: :destroy
 

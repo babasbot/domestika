@@ -7,6 +7,20 @@ RSpec.describe Course, type: :model do
     end
   end
 
+  describe '#proposals_count' do
+    let!(:course) do
+      create(:course)
+    end
+
+    it do
+      expect {
+        create(:proposal, course: course)
+      }.to change {
+        course.reload.proposals_count
+      }.by(1)
+    end
+  end
+
   describe '#teacher' do
     it do
       is_expected.to have_many(:teachers)
