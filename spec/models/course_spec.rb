@@ -24,4 +24,10 @@ RSpec.describe Course, type: :model do
       is_expected.to validate_uniqueness_of(:title).case_insensitive
     end
   end
+
+  describe '#votes' do
+    it do
+      is_expected.to have_many(:votes).dependent(:destroy)
+    end
+  end
 end
