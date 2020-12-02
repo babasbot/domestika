@@ -7,6 +7,12 @@ RSpec.describe Course, type: :model do
     end
   end
 
+  describe '#teacher' do
+    it do
+      is_expected.to have_many(:teachers)
+    end
+  end
+
   describe '#title' do
     it do
       is_expected.to validate_presence_of(:title)
