@@ -18,4 +18,10 @@ RSpec.describe Teacher, type: :model do
       is_expected.to validate_presence_of(:name)
     end
   end
+
+  describe '#proposals' do
+    it do
+      is_expected.to have_many(:proposals).dependent(:destroy)
+    end
+  end
 end
