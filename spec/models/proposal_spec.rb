@@ -5,6 +5,10 @@ RSpec.describe Proposal, type: :model do
     it do
       is_expected.to belong_to(:course)
     end
+
+    it do
+      is_expected.to validate_presence_of(:course)
+    end
   end
 
   describe '#teacher' do
