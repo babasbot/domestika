@@ -17,6 +17,10 @@ RSpec.describe Proposal, type: :model do
     end
 
     it do
+      is_expected.to validate_presence_of(:teacher)
+    end
+
+    it do
       create(:proposal)
 
       is_expected.to validate_uniqueness_of(:teacher_id).scoped_to(:course_id)
