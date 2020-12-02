@@ -7,5 +7,9 @@ RSpec.describe Teacher, type: :model do
 
       is_expected.to validate_uniqueness_of(:email).case_insensitive
     end
+
+    it do
+      is_expected.to validate_presence_of(:email)
+    end
   end
 end
