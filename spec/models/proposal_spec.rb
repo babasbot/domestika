@@ -32,4 +32,18 @@ RSpec.describe Proposal, type: :model do
       is_expected.to have_many(:votes).dependent(:destroy)
     end
   end
+
+  describe '#votes_count' do
+    let!(:proposal) do
+      create(:proposal)
+    end
+
+    it do
+      expect {
+        create(:proposal_vote, votable: proposal)
+      }.to change {
+        proposal.reload.votes_count
+      }.by(1)
+    end
+  end
 end
