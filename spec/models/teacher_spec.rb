@@ -12,4 +12,10 @@ RSpec.describe Teacher, type: :model do
       is_expected.to validate_presence_of(:email)
     end
   end
+
+  describe '#name' do
+    it do
+      is_expected.to validate_presence_of(:name)
+    end
+  end
 end
