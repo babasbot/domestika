@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_02_161556) do
+ActiveRecord::Schema.define(version: 2020_12_02_165607) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,18 @@ ActiveRecord::Schema.define(version: 2020_12_02_161556) do
     t.index ["email"], name: "index_teachers_on_email", unique: true
   end
 
+  create_table "votes", force: :cascade do |t|
+    t.string "votable_type", null: false
+    t.bigint "votable_id", null: false
+    t.bigint "voter_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["votable_id", "votable_type", "voter_id"], name: "index_votes_on_votable_id_and_votable_type_and_voter_id", unique: true
+    t.index ["votable_type", "votable_id"], name: "index_votes_on_votable_type_and_votable_id"
+    t.index ["voter_id"], name: "index_votes_on_voter_id"
+  end
+
   add_foreign_key "proposals", "courses"
   add_foreign_key "proposals", "teachers"
+  add_foreign_key "votes", "teachers", column: "voter_id"
 end
