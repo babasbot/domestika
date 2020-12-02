@@ -2,6 +2,8 @@ class Proposal < ApplicationRecord
   belongs_to :course
   belongs_to :teacher
 
+  has_many :votes, as: :votable, dependent: :destroy
+
   validates_presence_of :course
   validates_presence_of :teacher
 

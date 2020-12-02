@@ -26,4 +26,10 @@ RSpec.describe Proposal, type: :model do
       is_expected.to validate_uniqueness_of(:teacher_id).scoped_to(:course_id)
     end
   end
+
+  describe '#votes' do
+    it do
+      is_expected.to have_many(:votes).dependent(:destroy)
+    end
+  end
 end
