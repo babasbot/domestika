@@ -30,4 +30,18 @@ RSpec.describe Course, type: :model do
       is_expected.to have_many(:votes).dependent(:destroy)
     end
   end
+
+  describe '#votes_count' do
+    let!(:course) do
+      create(:course)
+    end
+
+    it do
+      expect {
+        create(:course_vote, votable: course)
+      }.to change {
+        course.reload.votes_count
+      }.by(1)
+    end
+  end
 end
