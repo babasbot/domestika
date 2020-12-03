@@ -1,15 +1,21 @@
 class VotesController < ApplicationController
-  expose :course
+  expose :votable, model: -> { infer_model }
 
   def create
-    course.votes.create(voter: current_teacher)
+    votable.votes.create(voter: current_teacher)
 
     redirect_to request.referer || root_path
   end
 
   def destroy
-    course.votes.where(voter: current_teacher).destroy_all
+    votable.votes.where(voter: current_teacher).destroy_all
 
     redirect_to request.referer || root_path
+  end
+
+  private
+
+  def infer_model
+    request.path.split('/').second&.classify&.constantize
   end
 end
