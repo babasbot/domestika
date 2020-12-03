@@ -22,6 +22,12 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    session[:current_teacher_id] = nil
+
+    redirect_to new_session_path
+  end
+
   private
 
   def session_params

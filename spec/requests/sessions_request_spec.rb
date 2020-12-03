@@ -54,4 +54,26 @@ RSpec.describe SessionsController, type: :request do
       end
     end
   end
+
+  describe 'DELETE /session' do
+    subject do
+      delete '/session'
+    end
+
+    before do
+      login_teacher create(:teacher)
+    end
+
+    it do
+      subject
+
+      expect(response).to redirect_to(new_session_path)
+    end
+
+    it do
+      subject
+
+      expect(session[:current_teacher_id]).to be_nil
+    end
+  end
 end
