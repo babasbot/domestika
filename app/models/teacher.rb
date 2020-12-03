@@ -1,6 +1,7 @@
 class Teacher < ApplicationRecord
   with_options dependent: :destroy do
     has_many :proposals
+    has_many :votes, foreign_key: 'voter_id'
   end
 
   has_many :courses, through: :proposals
