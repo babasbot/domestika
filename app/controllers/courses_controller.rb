@@ -1,13 +1,12 @@
 class CoursesController < ApplicationController
   expose :courses, -> { Course.includes(:votes).order(created_at: :desc) }
-  expose :course, scope: -> { current_teacher.courses }
 
   def index
     courses
   end
 
   def new
-    course
+    @course = Course.new
   end
 
   def create
