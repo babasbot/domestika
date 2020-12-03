@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   resource :session, only: %i[new create destroy]
 
-  resources :courses,  only: %i[index]
+  resources :courses,  only: %i[index new create show]
   resources :teachers, only: %i[new create]
 
   if Rails.env.test?
