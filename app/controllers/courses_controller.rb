@@ -11,6 +11,9 @@ class CoursesController < ApplicationController
 
   def show
     @course = Course.find(params[:id])
+
+    @proposals =
+      @course.proposals.includes(:teacher, :votes).order(created_at: :desc)
   end
 
   def create

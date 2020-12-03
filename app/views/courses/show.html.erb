@@ -1,11 +1,23 @@
 <section>
   <div class="container">
+    <h3 class="title is-6 is-uppercase">
+      COURSE
+    </h3>
+
     <%= render "course", course: @course %>
 
     <h3 class="title is-6 is-uppercase">
       Registered Teachers
     </h3>
 
-    <%= render partial: "proposal", collection: @course.proposals.includes(:teacher, :votes).order(created_at: :desc) %>
+    <% if @proposals.empty? %>
+      <div class="block has-text-centered mt-6">
+        <p class="subtitle">
+          There are none registered teachers.
+        </p>
+      <div>
+    <% else %>
+      <%= render partial: "proposal", collection: @proposals %>
+    <% end %>
   </div>
 </section>
