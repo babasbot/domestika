@@ -1,0 +1,4 @@
+<%= form_with model: teacher, url: session_path, local: true do |f| %>
+  <%= f.bulma_text_field_with_label :email %>
+  <%= f.bulma_submit "Log In" %>
+<% end %>
