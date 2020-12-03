@@ -1,0 +1,19 @@
+<section>
+  <div class="container">
+    <h3 class="title">Courses.</h3>
+
+    <% if courses.blank? %>
+      <div class="block has-text-centered mt-6">
+        <p class="title">
+          There are none available courses.
+        </p>
+
+        <%= link_to new_course_path, class: "button is-primary" do %>
+          Register a new course
+        <% end %>
+      <div>
+    <% else %>
+      <%= render partial: "course", collection: courses %>
+    <% end %>
+  </div>
+</section>
