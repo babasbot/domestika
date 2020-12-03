@@ -1,4 +1,6 @@
 class TeachersController < ApplicationController
+  skip_before_action :authenticate_teacher, only: %i[new create]
+
   expose :teacher
 
   def new
