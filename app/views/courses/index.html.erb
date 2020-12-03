@@ -1,18 +1,24 @@
 <section>
   <div class="container">
-    <%= link_to root_path, class: "has-dark-text" do %>
-      <h3 class="title my-5">Courses.</h3>
-    <% end %>
+    <div class="columns is-vcentered">
+      <div class="column">
+        <h3 class="title is-6 is-uppercase">
+          <%= "Courses (#{courses.size})" %>
+        </h3>
+      </div>
+
+      <div class="column is-narrow">
+        <%= link_to new_course_path, class: "button is-primary is-small is-uppercase" do %>
+          Register a course
+        <% end %>
+      </div>
+    </div>
 
     <% if courses.blank? %>
       <div class="block has-text-centered mt-6">
-        <p class="title">
+        <p class="subtitle">
           There are none available courses.
         </p>
-
-        <%= link_to new_course_path, class: "button is-primary" do %>
-          Register a new course
-        <% end %>
       <div>
     <% else %>
       <%= render partial: "course", collection: courses %>
