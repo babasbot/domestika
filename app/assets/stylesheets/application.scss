@@ -14,6 +14,10 @@
  *= require_self
  */
 
+$orange: #f85453;
+
+$primary: $orange;
+
 $fa-font-path: '@fortawesome/fontawesome-free/webfonts';
 
 @import '@fortawesome/fontawesome-free/scss/fontawesome';
