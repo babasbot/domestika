@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -13,6 +13,8 @@
   </head>
 
   <body>
+    <%= render "navbar" %>
+
     <section class="section">
       <%= yield %>
     </section>
