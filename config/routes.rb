@@ -9,6 +9,10 @@ Rails.application.routes.draw do
 
   resources :teachers, only: %i[new create]
 
+  resources :proposals, only: %i[] do
+    resource :vote, only: %i[create destroy]
+  end
+
   if Rails.env.test?
     namespace :test do
       post :session, to: 'sessions#create'
