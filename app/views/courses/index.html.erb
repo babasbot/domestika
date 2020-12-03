@@ -1,6 +1,8 @@
 <section>
   <div class="container">
-    <h3 class="title">Courses.</h3>
+    <%= link_to root_path, class: "has-dark-text" do %>
+      <h3 class="title my-5">Courses.</h3>
+    <% end %>
 
     <% if courses.blank? %>
       <div class="block has-text-centered mt-6">

@@ -1,0 +1,11 @@
+<section>
+  <div class="container">
+    <%= render "course", course: @course %>
+
+    <h3 class="title is-6 is-uppercase">
+      Registered Teachers
+    </h3>
+
+    <%= render partial: "proposal", collection: @course.proposals.includes(:teacher, :votes).order(created_at: :desc) %>
+  </div>
+</section>
