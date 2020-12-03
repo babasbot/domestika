@@ -1,13 +1,17 @@
-<div class="container">
-  <h3 class="title">Sign Up.</h3>
+<section class="hero is-large">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">Sign Up.</h3>
 
-  <p class="subtitle">
-    Already have an account? Log in <%= link_to "here", new_session_path %>.
-  </p>
+      <p class="subtitle">
+        Already have an account? Log in <%= link_to "here", new_session_path %>.
+      </p>
 
-  <div class="columns">
-    <div class="column is-half">
-      <%= render "form", teacher: teacher %>
+      <div class="columns">
+        <div class="column is-half">
+          <%= render "form", teacher: teacher %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</section>

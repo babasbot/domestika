@@ -1,21 +1,25 @@
-<div class="container">
-  <h3 class="title">Sign In.</h3>
+<section class="hero is-large">
+  <div class="hero-body">
+    <div class="container">
+      <h3 class="title">Log In.</h3>
 
-  <p class="subtitle">
-    Need an account? Sign up here.
-  </p>
+      <p class="subtitle my">
+        Need an account? Sign up <%= link_to "here", new_teacher_path %>.
+      </p>
 
-  <% flash.each do |type, message| %>
-    <div class="notification is-danger is-light is-fixed-top">
-      <div class="container">
-        <%= message %>
+      <% flash.each do |type, message| %>
+        <div class="notification is-danger is-light is-fixed-top">
+          <div class="container">
+            <%= message %>
+          </div>
+        </div>
+      <% end %>
+
+      <div class="columns">
+        <div class="column is-half">
+          <%= render "form", teacher: teacher %>
+        </div>
       </div>
     </div>
-  <% end %>
-
-  <div class="columns">
-    <div class="column is-half">
-      <%= render "form", teacher: teacher %>
-    </div>
   </div>
-</div>
+</section>
