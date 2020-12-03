@@ -3,11 +3,11 @@
     <p class="is-size-5">
     <span class="icon is-large">
       <% if course.votes.pluck(:voter_id).include?(current_teacher.id) %>
-        <%= link_to course_vote_path(course), method: :delete, class: 'has-text-danger' do %>
+        <%= link_to course_vote_path(course), method: :delete, class: 'has-text-primary' do %>
           <i class="fas fa-heart"></i>
         <% end %>
       <% else %>
-        <%= link_to course_vote_path(course), method: :post, class: 'has-text-danger' do %>
+        <%= link_to course_vote_path(course), method: :post, class: 'has-text-primary' do %>
           <i class="far fa-heart"></i>
         <% end %>
       <% end %>
