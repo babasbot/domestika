@@ -1,24 +1,33 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Getting Started
 
-Things you may want to cover:
+Install [Ruby 2.7.2](https://www.ruby-lang.org/es/news/2020/10/02/ruby-2-7-2-released/) and then install the project dependencies with:
 
-* Ruby version
+```sh
+$ bundle install
+```
 
-* System dependencies
+Then, install the javascript dependencies with:
 
-* Configuration
+```sh
+$ yarn
+```
 
-* Database creation
+Then, create the project database and run migration scripts with:
 
-* Database initialization
+```sh
+$ bundle exec rails db:create db:migrate
+```
 
-* How to run the test suite
+Finally, start the application with:
 
-* Services (job queues, cache servers, search engines, etc.)
+```sh
+$ rails server
+```
 
-* Deployment instructions
+### Run the test suite
 
-* ...
+```
+$ bundle exec rspec
+```
