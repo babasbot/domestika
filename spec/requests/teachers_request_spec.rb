@@ -16,7 +16,7 @@ RSpec.describe TeachersController, type: :request do
 
     context 'with a successful registration' do
       let!(:teacher_params) do
-        attributes_for(:teacher).slice(:email, :name)
+        attributes_for(:teacher).slice(:email, :name, :password)
       end
 
       it do

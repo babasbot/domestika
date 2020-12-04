@@ -16,11 +16,11 @@ RSpec.describe SessionsController, type: :request do
 
     context 'with an existent email' do
       let!(:teacher) do
-        create(:teacher)
+        create(:teacher, password: 'secretpassword')
       end
 
       let!(:teacher_params) do
-        { email: teacher.email }
+        { email: teacher.email, password: 'secretpassword' }
       end
 
       it do

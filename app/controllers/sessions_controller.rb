@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
   def create
     teacher = Teacher.find_by(email: session_params[:email])
 
-    if teacher
+    if teacher.try(:authenticate, session_params[:password])
       session[:current_teacher_id] = teacher.id
 
       redirect_to root_path
@@ -31,6 +31,6 @@ class SessionsController < ApplicationController
   private
 
   def session_params
-    params.require(:teacher).permit(:email)
+    params.require(:teacher).permit(:email, :password)
   end
 end

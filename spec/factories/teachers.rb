@@ -7,5 +7,9 @@ FactoryBot.define do
     name do
       Faker::Name.name
     end
+
+    password do
+      SecureRandom.alphanumeric(32)
+    end
   end
 end

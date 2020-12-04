@@ -1,4 +1,6 @@
 class Teacher < ApplicationRecord
+  has_secure_password
+
   with_options dependent: :destroy do
     has_many :proposals
     has_many :votes, foreign_key: 'voter_id'
@@ -10,4 +12,5 @@ class Teacher < ApplicationRecord
 
   validates_presence_of :email
   validates_presence_of :name
+  validates_presence_of :password
 end

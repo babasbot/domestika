@@ -25,6 +25,16 @@ RSpec.describe Teacher, type: :model do
     end
   end
 
+  describe '#password' do
+    it do
+      is_expected.to have_secure_password
+    end
+
+    it do
+      is_expected.to validate_presence_of(:password)
+    end
+  end
+
   describe '#proposals' do
     it do
       is_expected.to have_many(:proposals).dependent(:destroy)
