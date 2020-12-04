@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   resource :session, only: %i[new create destroy]
 
   resources :courses, only: %i[index new create show] do
-    resource :vote, only: %i[create destroy]
+    resource :proposal, only: %i[create destroy]
+    resource :vote,     only: %i[create destroy]
   end
 
   resources :teachers, only: %i[new create]
