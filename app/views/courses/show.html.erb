@@ -6,9 +6,33 @@
 
     <%= render "course", course: @course %>
 
-    <h3 class="title is-6 is-uppercase">
-      Registered Teachers
-    </h3>
+    <div class="columns is-vcentered">
+      <div class="column">
+        <h3 class="title is-6 is-uppercase">
+          <%= "Registered Teachers (#{@proposals.size})" %>
+        </h3>
+      </div>
+
+      <div class="column is-narrow">
+        <% if @course.proposals.where(teacher: current_teacher).any? %>
+          <%= link_to course_proposal_path(@course), method: :delete, class: "button is-primary is-small is-uppercase" do %>
+            <span class="icon">
+              <i class="fas fa-user-slash"></i>
+            </span>
+
+            <span>Unroll me</span>
+          <% end %>
+        <% else %>
+          <%= link_to course_proposal_path(@course), method: :post, class: "button is-primary is-small is-uppercase" do %>
+            <span class="icon">
+              <i class="fas fa-user-plus"></i>
+            </span>
+
+            <span>Register me</span>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
 
     <% if @proposals.empty? %>
       <div class="block has-text-centered mt-6">
